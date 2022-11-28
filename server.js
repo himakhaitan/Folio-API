@@ -10,7 +10,6 @@ app.use(express.json());
 
 // Basic or Home Route
 app.get("/", (req, res) => {
-    
   // Sending Response
   return res.send({
     server: "Folio",
