@@ -17,10 +17,10 @@ const router = express.Router();
   @desc   Add a Book in the Database
   @access Public
   @params { title, genre, author}
-  @return { book }
+  @return { book, success, message }
 */
 router.get("/book", async (req, res) => {
-  // Validating Data
+  // Validating Request Body
   const { errors, isValid } = bookValidator(req.body);
 
   // If Data is not valid return 400 Status
@@ -33,17 +33,25 @@ router.get("/book", async (req, res) => {
 
   // Find the Author
   try {
-    await Author.findById(req.body.author);
+    // Fetching the Author
+    let author = await Author.findById(req.body.author);
+    if (!author) {
+      throw new Error("Author not found");
+    }
   } catch (err) {
-    errors.author = "Author is not valid";
+    errors.author = err.message;
     return res.status(400).json(errors);
   }
 
   // Find the Genre
   try {
-    await Genre.findById(req.body.genre);
+    // Fetching the Genre
+    let genre = await Genre.findById(req.body.genre);
+    if (!genre) {
+      throw new Error("Genre not found");
+    }
   } catch (err) {
-    errors.genre = "Genre is not valid";
+    errors.genre = err.message;
     return res.status(400).json(errors);
   }
 
@@ -56,7 +64,11 @@ router.get("/book", async (req, res) => {
   });
 
   // Saving the Book
-  await book.save();
+  try {
+    await book.save();
+  } catch (err) {
+    console.log(err);
+  }
 
   // Sending Response
   res.json({

@@ -3,6 +3,12 @@ const mongoose = require("mongoose");
 // Custom isEmpty function
 const isEmpty = require("../utils/isEmpty");
 
+// Custom isEmail function
+const isEmail = require("../utils/isEmail");
+
+// Custom isDate function
+const isDate = require("../utils/isDate");
+
 // Book Valildator
 const bookValidator = (data) => {
   let errors = {};
@@ -73,6 +79,46 @@ const genreValidator = (data) => {
 const userValidator = (data) => {
   let errors = {};
 
+  // Validating First Name
+  data.firstName = isEmpty(data.firstName) ? "" : data.firstName;
+
+  if (data.firstName.length < 3) {
+    errors.firstName = "First Name must be at least 3 characters long";
+  }
+
+  if (data.firstName.length == 0) {
+    errors.firstName = "First Name is required";
+  }
+
+  // Validating Last Name
+  data.lastName = isEmpty(data.lastName) ? "" : data.lastName;
+
+  if (data.lastName.length < 3) {
+    errors.lastName = "Last Name must be at least 3 characters long";
+  }
+
+  if (data.lastName.length == 0) {
+    errors.lastName = "Last Name is required";
+  }
+
+  // Validating Email
+  data.email = isEmpty(data.email) ? "" : data.email;
+
+  if (!isEmail(data.email)) {
+    errors.email = "Email is not valid";
+  }
+
+  // Validating Registration Number
+  data.regNo = isEmpty(data.regNo) ? "" : data.regNo;
+  data.regNo = data.regNo.toUpperCase();
+  if (data.regNo.length != 8) {
+    errors.regNo = "Invalid Registration Number";
+  }
+
+  if (data.regNo.length == 0) {
+    errors.regNo = "Registration Number is required";
+  }
+
   return {
     errors,
     isValid: isEmpty(errors),
@@ -84,4 +130,5 @@ module.exports = {
   bookValidator,
   authorValidator,
   genreValidator,
+  userValidator,
 };

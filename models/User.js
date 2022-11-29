@@ -20,6 +20,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  regNo: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   // Issues of the User
   issues: [
     {
