@@ -1,14 +1,21 @@
 const express = require("express");
 
+// Creating Router
 const router = express.Router();
 
+/*
+  @route  POST /api/add/book
+  @desc   Add a Book in the Database
+  @access Public
+  @params { title, genre, author}
+  @return { book }
+*/
 router.get("/book", (req, res) => {
-    
-  return res.json({
-    message: "Book Route",
-  });
+  // Validating Data
+  
+
+  // Sending Response
 });
 
-router.use("/author", require("./author"));
-
+// Exporting Router
 module.exports = router;

@@ -9,6 +9,12 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  // Slug of the book
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   // No of Copies of the Book
   copies: {
     type: Number,
