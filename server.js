@@ -8,6 +8,9 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
+// Routes
+app.use("/api/add", require("./routes/add/Index"));
+
 // Basic or Home Route
 app.get("/", (req, res) => {
   // Sending Response
