@@ -50,10 +50,34 @@ const bookValidator = (data) => {
 };
 
 // Author Validator
-const authorValidator = (data) => {};
+const authorValidator = (data) => {
+  let errors = {};
+
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  };
+};
 
 // Genre Validator
-const genreValidator = (data) => {};
+const genreValidator = (data) => {
+  let errors = {};
+
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  };
+};
+
+// User Validator
+const userValidator = (data) => {
+  let errors = {};
+
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  };
+};
 
 // Exporting Validators
 module.exports = {
