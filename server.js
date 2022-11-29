@@ -21,6 +21,9 @@ app.get("/", (req, res) => {
 // Defining Server Port
 const PORT = process.env.PORT || 3000;
 
+// Establishing Database Connection
+require("./config/db.js");
+
 // Creating Server
 const SERVER = http.createServer(app);
 
