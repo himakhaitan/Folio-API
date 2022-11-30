@@ -19,7 +19,7 @@ const router = express.Router();
   @params { title, genre, author}
   @return { book, success, message }
 */
-router.get("/book", async (req, res) => {
+router.post("/book", async (req, res) => {
   // Validating Request Body
   const { errors, isValid } = bookValidator(req.body);
 
@@ -30,6 +30,23 @@ router.get("/book", async (req, res) => {
 
   // Creating slug from Title
   let slug = req.body.title.toLowerCase().replace(/ /g, "-");
+
+  // Checking for existing book
+  try {
+    let book = await Book.findOne({
+      slug: slug,
+    });
+    if (book) {
+      return res.status(400).json({
+        message: "Book already exists",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
 
   // Find the Author
   try {
