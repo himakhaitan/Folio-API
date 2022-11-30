@@ -69,6 +69,17 @@ const authorValidator = (data) => {
 const genreValidator = (data) => {
   let errors = {};
 
+  // Validating Name
+  data.name = isEmpty(data.name) ? "" : data.name;
+
+  if (data.name.length < 3) {
+    errors.name = "Name must be at least 3 characters long";
+  }
+
+  if (data.name.length == 0) {
+    errors.name = "Name is required";
+  }
+
   return {
     errors,
     isValid: isEmpty(errors),

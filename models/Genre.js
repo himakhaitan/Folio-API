@@ -14,6 +14,7 @@ const genreSchema = new Schema({
   slug: {
     type: String,
     required: true,
+    unique: true,
   },
   // Books of the Genre
   books: [
