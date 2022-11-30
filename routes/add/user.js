@@ -33,6 +33,9 @@ router.post("/user", async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
   }
 
   // Creating a new user
@@ -49,6 +52,9 @@ router.post("/user", async (req, res) => {
     await newUser.save();
   } catch (err) {
     console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
   }
 
   // Returning the new user

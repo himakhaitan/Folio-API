@@ -59,6 +59,28 @@ const bookValidator = (data) => {
 const authorValidator = (data) => {
   let errors = {};
 
+  // Validating First Name
+  data.firstName = isEmpty(data.firstName) ? "" : data.firstName;
+
+  if (data.firstName.length < 3) {
+    errors.firstName = "First Name must be at least 3 characters long";
+  }
+
+  if (data.firstName.length == 0) {
+    errors.firstName = "First Name is required";
+  }
+
+  // Validating Last Name
+  data.lastName = isEmpty(data.lastName) ? "" : data.lastName;
+
+  if (data.lastName.length < 3) {
+    errors.lastName = "Last Name must be at least 3 characters long";
+  }
+
+  if (data.lastName.length == 0) {
+    errors.lastName = "Last Name is required";
+  }
+  
   return {
     errors,
     isValid: isEmpty(errors),

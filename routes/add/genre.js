@@ -46,6 +46,9 @@ router.post("/genre", async (req, res) => {
     await newGenre.save();
   } catch (err) {
     console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
   }
 
   // Returning the New Genre

@@ -68,6 +68,9 @@ router.get("/book", async (req, res) => {
     await book.save();
   } catch (err) {
     console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
   }
 
   // Sending Response
