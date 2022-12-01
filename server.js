@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/add", require("./routes/add/Index"));
 app.use("/api/data", require("./routes/data/Index"));
+app.use("/api/issue", require("./routes/issue/Index"));
 
 // Basic or Home Route
 app.get("/", (req, res) => {
