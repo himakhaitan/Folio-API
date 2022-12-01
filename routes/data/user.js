@@ -13,7 +13,7 @@ const User = require("../../models/User");
   @return 
 */
 
-router.get("/user/id/:id", async (req, res) => {
+router.get("/id/:id", async (req, res) => {
   // Getting the User ID
   let id = req.params.id;
 
@@ -64,7 +64,7 @@ router.get("/user/id/:id", async (req, res) => {
   @return 
 */
 
-router.get("/user/regNo/:regNo", async (req, res) => {
+router.get("/regNo/:regNo", async (req, res) => {
   // Getting the Registration Number
   let regNo = req.params.regNo;
 

@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 // Including Add Routes
-// router.use("/", require("./book"));
-// router.use("/", require("./author"));
-router.use("/", require("./genre"));
-router.use("/", require("./user"));
+router.use("/book", require("./book"));
+// router.use("/author", require("./author"));
+router.use("/genre", require("./genre"));
+router.use("/user", require("./user"));
 
 
 module.exports = router;
