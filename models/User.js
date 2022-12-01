@@ -32,7 +32,10 @@ const userSchema = new Schema({
         type: ObjectId,
         ref: "Book",
       },
-      issuedAt: Date,
+      issuedAt: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
   // Dues of the User
