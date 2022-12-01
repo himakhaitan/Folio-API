@@ -9,7 +9,15 @@ const User = require("../../models/User");
 // Importing the User Validator
 const { userValidator } = require("../../validation/addValidator");
 
-// Adding a User
+
+/*
+  @route  GET /api/add/user
+  @desc   Adding a User
+  @access Public
+  @params { firstName lastName email regNo }
+  @return { user messsage success }
+*/
+
 router.post("/user", async (req, res) => {
   // Validating the Request Body
   const { errors, isValid } = userValidator(req.body);

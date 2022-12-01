@@ -9,8 +9,8 @@ const User = require("../../models/User");
   @route  GET /api/data/user/id/:id
   @desc   Get a User by Object ID
   @access Public
-  @params 
-  @return 
+  @params { id }
+  @return { user messsage success }
 */
 
 router.get("/id/:id", async (req, res) => {
@@ -60,8 +60,8 @@ router.get("/id/:id", async (req, res) => {
   @route  GET /api/data/user/regNo/:regNo
   @desc   Get a User by Registration Number
   @access Public
-  @params 
-  @return 
+  @params { regNo }
+  @return { user messsage success }
 */
 
 router.get("/regNo/:regNo", async (req, res) => {
