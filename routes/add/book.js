@@ -50,9 +50,10 @@ router.post("/book", async (req, res) => {
   }
 
   // Find the Author
+  let author;
   try {
     // Fetching the Author
-    let author = await Author.findById(req.body.author);
+    author = await Author.findById(req.body.author);
     if (!author) {
       throw new Error("Author not found");
     }
@@ -62,9 +63,10 @@ router.post("/book", async (req, res) => {
   }
 
   // Find the Genre
+  let genre;
   try {
     // Fetching the Genre
-    let genre = await Genre.findById(req.body.genre);
+    genre = await Genre.findById(req.body.genre);
     if (!genre) {
       throw new Error("Genre not found");
     }
@@ -80,6 +82,43 @@ router.post("/book", async (req, res) => {
     author: new ObjectId(req.body.author),
     genre: new ObjectId(req.body.genre),
   });
+
+  // Updating Author
+  try {
+    // Checking if Book is already in there
+    if (author.books.includes(book.id)) {
+      return res.status(500).json({
+        message: "Internal Server Error",
+      });
+    }
+
+    // Pushing Book into Authors Array
+    author.books.push(book.id);
+    await author.save();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+  // Updating Genre
+  try {
+    // Checking if Book is already in there
+    if (genre.books.includes(book.id)) {
+      return res.status(500).json({
+        message: "Internal Server Error",
+      });
+    }
+
+    // Pushing Books into Genre Array
+    genre.books.push(book.id);
+    await genre.save();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
 
   // Saving the Book
   try {
