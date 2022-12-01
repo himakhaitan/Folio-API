@@ -8,6 +8,15 @@ const Genre = require("../../models/Genre");
 // Importing Validators
 const { genreValidator } = require("../../validation/addValidator");
 
+/*
+  @route  POST /api/add/genre
+  @desc   Adding an Genre
+  @access Public
+  @params { name }
+  @return { genre messsage success }
+*/
+
+
 router.post("/genre", async (req, res) => {
   // Validating Request Body
 

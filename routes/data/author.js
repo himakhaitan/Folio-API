@@ -7,7 +7,14 @@ const router = express.Router();
 // Importing Models
 const Author = require("../../models/Author");
 
-// Fetch Author by ID
+/*
+  @route  GET /api/data/author/id/:id
+  @desc   Fetch Author by ID
+  @access Public
+  @params { id }
+  @return { author messsage success }
+*/
+
 router.get("/id/:id", async (req, res) => {
   // Getting the Author ID
   let id = req.params.id;

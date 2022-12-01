@@ -9,9 +9,8 @@ const User = require("../../models/User");
 // Importing the User Validator
 const { userValidator } = require("../../validation/addValidator");
 
-
 /*
-  @route  GET /api/add/user
+  @route  POST /api/add/user
   @desc   Adding a User
   @access Public
   @params { firstName lastName email regNo }

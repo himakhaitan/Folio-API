@@ -10,6 +10,15 @@ const Author = require("../../models/Author");
 
 const { authorValidator } = require("../../validation/addValidator");
 
+
+/*
+  @route  POST /api/add/author
+  @desc   Adding an Author
+  @access Public
+  @params { firstName lastName }
+  @return { author messsage success }
+*/
+
 router.post("/author", async (req, res) => {
   // Validating Request Body
   const { errors, isValid } = authorValidator(req.body);

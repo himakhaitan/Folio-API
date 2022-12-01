@@ -8,7 +8,14 @@ const router = express.Router();
 // Importing Models
 const Book = require("../../models/Book");
 
-// Fetch Book by ID
+/*
+  @route  GET /api/data/book/id/:id
+  @desc   Fetch Book by ID
+  @access Public
+  @params { id }
+  @return { book messsage success }
+*/
+
 router.get("/id/:id", async (req, res) => {
   // Getting the Book ID
   let id = req.params.id;
@@ -47,6 +54,8 @@ router.get("/id/:id", async (req, res) => {
           name: book.genre.name,
         },
       },
+      success: true,
+      message: "Book Fetched Successfully",
     });
   } catch (err) {
     // Dealing with Errors
@@ -57,7 +66,14 @@ router.get("/id/:id", async (req, res) => {
   }
 });
 
-// Fetch Book by Slug
+/*
+  @route  GET /api/data/book/:slug
+  @desc   Fetch Book by Slug
+  @access Public
+  @params { id }
+  @return { book messsage success }
+*/
+
 router.get("/:slug", async (req, res) => {
   // Getting the Slug
   let slug = req.params.slug;
@@ -95,6 +111,8 @@ router.get("/:slug", async (req, res) => {
           name: book.genre.name,
         },
       },
+      message: "Book fetched",
+      success: true,
     });
   } catch (err) {
     // Tackling Errors

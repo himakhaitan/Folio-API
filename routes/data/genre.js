@@ -5,7 +5,14 @@ const router = express.Router();
 
 const Genre = require("../../models/Genre");
 
-// Fetching Books of a Genre with Object ID
+/*
+  @route  GET /api/data/genre/id/:id
+  @desc   Fetching Books of a Genre with Object ID
+  @access Public
+  @params { id }
+  @return { genre messsage success }
+*/
+
 router.get("/id/:id", async (req, res) => {
   // Getting the User ID
   let id = req.params.id;
@@ -46,7 +53,15 @@ router.get("/id/:id", async (req, res) => {
   }
 });
 
-// Fetching Books of a Genre with Slug
+/*
+  @route  GET /api/data/genre/:slug
+  @desc   Fetching Books of a Genre with Slug
+  @access Public
+  @params { id }
+  @return { genre messsage success }
+*/
+
+
 router.get("/:slug", async (req, res) => {
   // Getting the Slug
   let slug = req.params.slug;
