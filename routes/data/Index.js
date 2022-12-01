@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Including Add Routes
 router.use("/book", require("./book"));
-// router.use("/author", require("./author"));
+router.use("/author", require("./author"));
 router.use("/genre", require("./genre"));
 router.use("/user", require("./user"));
 
