@@ -1,6 +1,12 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const role = require("../../config/role");
 
+// Importing Middleware
+const authMiddleware = require("../../middlewares/auth");
+
+// Instanciating Router
 const router = express.Router();
 
 // Importing Models
@@ -20,7 +26,7 @@ const {
   @return { admin messsage success }
 */
 
-router.post("/register", async (req, res) => {
+router.post("/register", authMiddleware([role.admin]), async (req, res) => {
   // Validating Request Body
   const { errors, isValid } = registerValidator(req.body);
 
@@ -129,7 +135,6 @@ router.post("/register", async (req, res) => {
 */
 
 router.post("/login", async (req, res) => {
-
   // Validating Request Body
   const { errors, isValid } = loginValidator(req.body);
 
@@ -141,8 +146,68 @@ router.post("/login", async (req, res) => {
     });
   }
 
-  
+  // Checking for User
+  let user;
+  try {
+    user = await Admin.findOne({
+      $or: [
+        {
+          username: req.body.username,
+        },
+        {
+          email: req.body.username,
+        },
+      ],
+    });
 
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+        success: false,
+      });
+    }
+  } catch (err) {
+    // Handling Errors
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
+  }
+
+  // Comparing Password
+  bcrypt.compare(req.body.password, user.password, (err, result) => {
+    // Incorrect Password
+    if (!result || err) {
+      return res.status(401).json({
+        message: "Incorrect Password",
+        success: false,
+      });
+    }
+
+    // Generating JWT
+    let payload = {
+      username: user.username,
+      email: user.email,
+      role: user.role,
+    };
+    const token = jwt.sign(payload, process.env.TOKEN_SECRET, {
+      expiresIn: "1h",
+    });
+
+    if (!token) {
+      return res.status(500).json({
+        message: "Internal Server Error",
+        success: false,
+      });
+    }
+
+    // Sending Response
+    return res.status(200).json({
+      success: true,
+      message: "Authenticated",
+      jwt: `OAuth ${token}`,
+    });
+  });
 });
 
 module.exports = router;

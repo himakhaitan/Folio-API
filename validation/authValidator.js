@@ -7,6 +7,10 @@ const registerValidator = (data) => {
   // Validating Username
   data.username = isEmpty(data.username) ? "" : data.username;
 
+  if (isEmail(data.username)) {
+    errors.username = "Email and Username can't be same";
+  }
+
   if (data.username.length == 0) {
     errors.username = "Username is Required";
   }
@@ -44,6 +48,10 @@ const loginValidator = (data) => {
 
   // Validating username or email
   data.username = isEmpty(data.username) ? "" : data.username;
+
+  if (data.username.length == 0) {
+    errors.username = "Username/Email is required";
+  }
 
   // Validating Password
   data.password = isEmpty(data.password) ? "" : data.password;

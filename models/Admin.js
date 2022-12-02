@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const role = require("../config/role");
 
 // Creating a Schema
 const adminSchema = new Schema({
@@ -22,7 +23,7 @@ const adminSchema = new Schema({
   // Role
   role: {
     type: String,
-    enum: ["admin", "employee", "common"],
+    enum: [role.admin, role.employee, role.common],
     default: "common",
   },
 });
