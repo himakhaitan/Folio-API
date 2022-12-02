@@ -12,8 +12,8 @@ const {
 } = require("../../validation/issueValidator");
 
 /*
-  @route  POST /api/issue/add
-  @desc   Retrieve a Book
+  @route  POST /api/issue/add 
+  @desc   Issue a Book
   @access Public
   @params { bookID userID }
   @return { success message }
@@ -105,7 +105,7 @@ router.post("/add", async (req, res) => {
 
 /*
   @route  POST /api/issue/remove
-  @desc   Issue a Book
+  @desc   Retrieve a Book
   @access Public
   @params { bookID }
   @return { success message }

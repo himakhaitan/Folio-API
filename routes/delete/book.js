@@ -13,7 +13,7 @@ const Genre = require("../../models/Genre");
 const User = require("../../models/User");
 
 // Delete a Book
-router.get("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
     
   // Extracting ID
   const id = req.params.id;

@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use("/api/add", require("./routes/add/Index"));
 app.use("/api/data", require("./routes/data/Index"));
 app.use("/api/issue", require("./routes/issue/Index"));
+app.use("/api/delete", require("./routes/delete/Index"));
 
 // Basic or Home Route
 app.get("/", (req, res) => {

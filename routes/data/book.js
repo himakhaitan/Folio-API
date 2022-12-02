@@ -33,8 +33,6 @@ router.get("/id/:id", async (req, res) => {
       .populate("genre", "name")
       .populate("author", "firstName lastName");
 
-    console.log(book);
-
     if (!book) {
       // If Book not found
       return res.status(404).json({
