@@ -22,6 +22,7 @@ app.use("/api/add", require("./routes/add/Index"));
 app.use("/api/data", require("./routes/data/Index"));
 app.use("/api/issue", require("./routes/issue/Index"));
 app.use("/api/delete", require("./routes/delete/Index"));
+app.use("/auth", require("./routes/auth/Index"));
 
 // Basic or Home Route
 app.get("/", (req, res) => {
