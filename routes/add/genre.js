@@ -1,4 +1,5 @@
 const express = require("express");
+const role = require("../../config/role");
 
 const router = express.Router();
 
@@ -8,10 +9,13 @@ const Genre = require("../../models/Genre");
 // Importing Validators
 const { genreValidator } = require("../../validation/addValidator");
 
+// Importing Middlewares
+const authMiddleware = require("../../middlewares/auth");
+
 /*
   @route  POST /api/add/genre
   @desc   Adding an Genre
-  @access Public
+  @access { admin employee }
   @params { name }
   @return { genre messsage success }
 */

@@ -21,7 +21,7 @@ const {
 /*
   @route  POST /auth/register
   @desc   Register Route
-  @access Public
+  @access { admin }
   @params { username email password }
   @return { admin messsage success }
 */

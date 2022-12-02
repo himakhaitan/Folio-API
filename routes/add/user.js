@@ -1,4 +1,5 @@
 const express = require("express");
+const role = require("../../config/role");
 
 // Creating the Router
 const router = express.Router();
@@ -9,10 +10,13 @@ const User = require("../../models/User");
 // Importing the User Validator
 const { userValidator } = require("../../validation/addValidator");
 
+// Importing Middlewares
+const authMiddleware = require("../../middlewares/auth");
+
 /*
   @route  POST /api/add/user
   @desc   Adding a User
-  @access Public
+  @access { admin employee }
   @params { firstName lastName email regNo }
   @return { user messsage success }
 */

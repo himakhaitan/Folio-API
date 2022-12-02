@@ -1,9 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const role = require("../../config/role");
 
 // Importing Utils
 const isEmpty = require("../../utils/isEmpty");
 
+// Importing Middleware
+const authMiddleware = require("../../middlewares/auth");
+
+// Instanciating Router
 const router = express.Router();
 
 // Importing Models
@@ -12,9 +17,15 @@ const Author = require("../../models/Author");
 const Genre = require("../../models/Genre");
 const User = require("../../models/User");
 
-// Delete a Book
-router.delete("/:id", async (req, res) => {
-    
+/*
+  @route  DELETE /api/delete/book/:id
+  @desc   Delete a Book by ID
+  @access { admin }
+  @params { id }
+  @return { messsage success }
+*/
+
+router.delete("/:id", authMiddleware([role.admin]), async (req, res) => {
   // Extracting ID
   const id = req.params.id;
 

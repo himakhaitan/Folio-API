@@ -1,14 +1,27 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
+const role = require("../../config/role");
 
 // Importing Models
 const User = require("../../models/User");
 const Book = require("../../models/Book");
 
+// Intanciating Router
 const router = express.Router();
 
-// Delete user using Object ID
-router.delete("/:id", async (req, res) => {
+// Importing Middleware
+const authMiddleware = require("../../middlewares/auth");
+
+/*
+  @route  POST /api/delete/:id
+  @desc   Delete a User
+  @access { admin }
+  @params { id }
+  @return { messsage success }
+*/
+
+router.delete("/:id", authMiddleware([role.admin]) ,async (req, res) => {
+
   // Extract Object ID
   const id = req.params.id;
 
