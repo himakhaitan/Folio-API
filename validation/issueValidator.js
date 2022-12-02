@@ -3,10 +3,10 @@ const isEmpty = require("../utils/isEmpty");
 
 const addValidator = (data) => {
   let errors = {};
-  data.user = isEmpty(data.user) ? "" : data.user;
+  data.regNo = isEmpty(data.regNo) ? "" : data.regNo;
 
-  if (!mongoose.isValidObjectId(data.user)) {
-    errors.user = "User is not valid";
+  if (data.regNo.length != 8) {
+    errors.regNo = "Invalid Registration Number";
   }
   data.book = isEmpty(data.book) ? "" : data.book;
 

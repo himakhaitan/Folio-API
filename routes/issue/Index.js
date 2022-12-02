@@ -15,7 +15,7 @@ const {
   @route  POST /api/issue/add 
   @desc   Issue a Book
   @access Public
-  @params { bookID userID }
+  @params { book regNo }
   @return { success message }
 */
 
@@ -48,7 +48,9 @@ router.post("/add", async (req, res) => {
   // Check for the User ID
   let user;
   try {
-    user = await User.findById(req.body.user);
+    user = await User.findOne({
+      regNo: req.body.regNo,
+    });
 
     if (!user) {
       return res.status(404).json({
@@ -64,7 +66,7 @@ router.post("/add", async (req, res) => {
   }
 
   // Updating Book
-  book.issuer = req.body.user;
+  book.issuer = user.id;
 
   // Updating User
   let isThere = false;
@@ -98,6 +100,7 @@ router.post("/add", async (req, res) => {
   return res.status(200).json({
     message: "Book Issued",
     issuedTo: user.id,
+    regNo: user.regNo,
     book: book.id,
     success: true,
   });
