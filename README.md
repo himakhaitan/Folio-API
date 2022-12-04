@@ -48,11 +48,24 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#commands">Routes</a></li>
+    <li><a href="#routes">Routes</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
+## Routes
+
+| Route | Method | Description | Params | Response | Access |
+| --- | --- | --- | --- | --- | --- |
+| /api/add/book | POST | Add a Book | {
+    title: String,
+    genre: ObjectID,
+    author: ObjectID,
+} | {
+    book,
+    success: true,
+    message: String,
+} | admin & employee |
 
 ## Contact
 
