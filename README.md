@@ -48,7 +48,15 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#routes">Routes</a></li>
+    <li><a href="#routes">Routes</a>
+    <ul>
+      <li><a href="#add-routes">Add Routes</a></li>
+      <li><a href="#auth-routes">Auth Routes</a></li>
+      <li><a href="#data-routes">Data Routes</a></li>
+      <li><a href="#delete-routes">Delete Routes</a></li>
+      <li><a href="#issue-routes">Issue Routes</a></li>
+    </ul>
+    </li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -89,7 +97,6 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 | -------------------- | ------ | ------------------- | ---------- | --------------------------------- | ------ |
 | /api/delete/book/:id | DELETE | Delete a Book by ID | id: String | message: String, success: Boolean | admin  |
 | /api/delete/user/:id | DELETE | Delete a User by ID | id: String | message: String, success: Boolean | admin  |
-
 
 ### Issue Routes
 
