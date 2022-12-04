@@ -13,7 +13,7 @@ const router = express.Router();
 const authMiddleware = require("../../middlewares/auth");
 
 /*
-  @route  POST /api/delete/:id
+  @route  DELETE /api/delete/user/:id
   @desc   Delete a User
   @access { admin }
   @params { id }

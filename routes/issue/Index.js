@@ -20,7 +20,7 @@ const authMiddleware = require("../../middlewares/auth");
   @desc   Issue a Book
   @access { admin employee }
   @params { book regNo }
-  @return { success message }
+  @return { success message issuedTo regNo book }
 */
 
 router.post(
@@ -119,7 +119,7 @@ router.post(
   @desc   Retrieve a Book
   @access { admin employee }
   @params { bookID }
-  @return { success message }
+  @return { success message book user }
 */
 
 router.post(
