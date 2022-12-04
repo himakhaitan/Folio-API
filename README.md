@@ -55,14 +55,9 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 
 ## Routes
 
-| Route         | Method | Description | Params         | Response | Access |
-| ------------- | ------ | ----------- | -------------- | -------- | ------ |
-| /api/add/book | POST   | Add a Book  | title: String, |
-
-genre: ObjectID,
-author: ObjectID, | book: Object,
-success: Boolean,
-message: String, | admin & employee |
+| Route         | Method | Description | Params                                            | Response                                         | Access           |
+| ------------- | ------ | ----------- | ------------------------------------------------- | ------------------------------------------------ | ---------------- |
+| /api/add/book | POST   | Add a Book  | title: String, genre: ObjectID, author: ObjectID, | book: Object, success: Boolean, message: String, | admin & employee |
 
 ## Contact
 
