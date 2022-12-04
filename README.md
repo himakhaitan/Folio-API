@@ -61,7 +61,7 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 #### Add Routes
 
 | /api/add/book   | POST | Add a Book    | title: String, genre: ObjectID, author: ObjectID,                  | book: Object, success: Boolean, message: String,   | admin & employee |
-| --------------- | ---- | ------------- | ------------------------------------------------------------------ | -------------------------------------------------- | ---------------- |
+
 | /api/add/author | POST | Add an Author | firstName: String, lastName: String                                | author: Object, success: Boolean, message: String, | admin & employee |
 | /api/add/user   | POST | Add a User    | firstName: String, lastName: String, email: String, regNo: String, | user: Object, success: Boolean, message: String,   | admin & employee |
 | /api/add/genre  | POST | Add a Genre   | name: String                                                       | genre: Object, success: Boolean, message: String,  | admin & employee |
@@ -69,13 +69,13 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 #### Auth Routes
 
 | /auth/register | POST | Registering Admin | username: String, email: String, password: String | admin: Object, message: String, success: Boolean | admin  |
-| -------------- | ---- | ----------------- | ------------------------------------------------- | ------------------------------------------------ | ------ |
+
 | /auth/login    | POST | Loggin In User    | username: String, password: String                | jwt: String,message: String, success: Boolean    | Public |
 
 #### Data Routes
 
 | /api/data/author/id/:id     | GET | Fetch Author by ID                       | id: String    | author: Object, message: String, success: Boolean | admin, employee, common |
-| --------------------------- | --- | ---------------------------------------- | ------------- | ------------------------------------------------- | ----------------------- |
+
 | /api/data/book/id/:id       | GET | Fetch Book by ID                         | id: String    | book: Object, message: String, success: Boolean   | admin, employee, common |
 | /api/data/book/:slug        | GET | Fetch Book by Slug                       | slug: String  | book: Object, message: String, success: Boolean   | admin, employee, common |
 | /api/data/genre/id/:id      | GET | Fetching Books of a Genre with Object ID | id: String    | genre: Object, message: String, success: Boolean  | admin, employee, common |
@@ -86,14 +86,12 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 #### Delete Routes
 
 | /api/delete/book/:id | DELETE | Delete a Book by ID | id: String | message: String, success: Boolean | admin |
-| -------------------- | ------ | ------------------- | ---------- | --------------------------------- | ----- |
 | /api/delete/user/:id | DELETE | Delete a User by ID | id: String | message: String, success: Boolean | admin |
-|                      |        |                     |            |                                   |       |
 
 #### Issue Routes
 
 | /api/issue/add    | POST | Issue a Book    | book: ObjectID, regNo: String | success: Boolean, message: String, book: ObjectID, regNo: String, issuedTo: ObjectID | admin & employee |
-| ----------------- | ---- | --------------- | ----------------------------- | ------------------------------------------------------------------------------------ | ---------------- |
+
 | /api/issue/remove | POST | Retrieve a Book | book: ObjectD                 | book: ObjectID, user: ObjectID, success: Boolean, message: String                    | admin & employee |
 
 ## Contact
