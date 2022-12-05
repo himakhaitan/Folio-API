@@ -61,6 +61,16 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
   </ol>
 </details>
 
+## About The Project
+
+<p>This project is an API (Application Programming Interface) powered by <a href="https://expressjs.com/">Express JS</a>. Different Routes can be used to perfrom different set of predefined CRUD operations on the MongoDB Database.</p>
+
+The API may serve several **API Clients** to server their purpose. 
+
+Ofcourse, the API doesn't serve for many day-to-day operations required for Library Management. You may check-out my Roadmap for API <a href="#roadmap">here</a>. You may also suggest changes or new features by creating a new issue <a href="https://github.com/himakhaitan/Folio-API/issues">here</a>.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Routes
 
 ### Add Routes
