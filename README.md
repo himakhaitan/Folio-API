@@ -81,6 +81,40 @@ Below is the list of all the major frameworks and libraries used in the project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Getting Started
+
+To get a local copy of the API Server up and running follow these simple steps
+
+- Clone the repository
+
+```bash
+git clone https://github.com/himakhaitan/Folio-API.git
+```
+
+- Install the dependencies
+
+```bash
+npm install
+```
+
+- Follow the <a href="https://github.com/himakhaitan/Folio-API#installation">Installation</a> Steps
+
+- Ready to run the Server
+
+```bash
+npm run start
+```
+
+- For Development Mode
+
+```bash
+npm run dev
+```
+
+This will constantly look for changes in your code and restart the server automatically. Rescued Huhh!
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Prerequisites
 
 The prerequisites for the API server to run are the following:
