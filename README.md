@@ -65,9 +65,29 @@ API is equipped with a variety of routes (POST, GET, DELETE, UPDATE) that can be
 
 <p>This project is an API (Application Programming Interface) powered by <a href="https://expressjs.com/">Express JS</a>. Different Routes can be used to perfrom different set of predefined CRUD operations on the MongoDB Database.</p>
 
-The API may serve several **API Clients** to server their purpose. 
+The API may serve several **API Clients** to serve their purpose. API is capable of maintating Inventory of the Library and manage other chores such as Issuing a Book & Taking it back.
 
 Ofcourse, the API doesn't serve for many day-to-day operations required for Library Management. You may check-out my Roadmap for API <a href="#roadmap">here</a>. You may also suggest changes or new features by creating a new issue <a href="https://github.com/himakhaitan/Folio-API/issues">here</a>.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Built With
+
+Below is the list of all the major frameworks and libraries used in the project.
+
+- [Express.js](https://expressjs.com/)
+- [Node.js](https://nodejs.org/en/)
+- [Mongoose](https://mongoosejs.com/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Prerequisites
+
+The prerequisites for the API server to run are the following:
+
+- Node.js (v16.16.0 or higher)
+- MongoDB (Locally or Cloud)
+- and you are good to go!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
