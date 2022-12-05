@@ -91,6 +91,34 @@ The prerequisites for the API server to run are the following:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Installation
+
+Following are the steps to configure the API Server and make it up and running.
+
+- Configure the Environment Variables
+  - Create a file called `.env` in the root directory of the project
+  - Add the following lines to the file
+  ```bash
+  DATABASE_URL=MONGODB_URL
+  TOKEN_SECRET=STRING_FOR_HASHING_JWT
+  ```
+  - Replace `DATABASE_URL` with a MongoDB Url (Locally Hosted or Cloud Based)
+  - Replace `TOKEN_SECRET` with a string of your choice. Make sure to choose it tough.
+  - Note: You can also use the `sample.env` file to get a template of the file
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Roadmap
+
+- [ ] Route to fetch Books by Authors
+- [ ] Route to fetch Books by Genre
+- [ ] Adding Multiple copies of same Book
+- [ ] Issuing Books with more than 1 copies
+
+See the [open issues](https://github.com/himakhaitan/Folio-API/issues) for a full list of proposed features (and known issues). Feel free to create one.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Routes
 
 ### Add Routes
